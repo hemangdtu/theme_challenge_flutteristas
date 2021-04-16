@@ -25,15 +25,95 @@ class MyTheme with ChangeNotifier {
     notifyListeners();
   }
 
-  // todo(you) fill this in and make the different text styles visible in the text area look better in both light, dark and other mode?
   ThemeData get currentThemeData {
     switch (themeType) {
       case ThemeType.Light:
-        return ThemeData();
+        return ThemeData(
+          brightness: Brightness.light,
+          primaryColor: Colors.grey.shade100,
+          accentColor: Colors.yellow,
+          textTheme: TextTheme(
+            headline3: TextStyle(
+              fontSize: 50.0,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Roboto',
+              color: Colors.yellow.shade600,
+            ),
+            subtitle1: TextStyle(fontSize: 15.0),
+          ),
+        );
       case ThemeType.Dark:
-        return ThemeData();
+        return ThemeData(
+          brightness: Brightness.dark,
+          textTheme: TextTheme(
+            headline3: TextStyle(
+              color: Colors.white,
+              fontSize: 50.0,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Roboto',
+            ),
+            subtitle1: TextStyle(fontSize: 15.0, color: Colors.grey.shade400),
+            bodyText1: TextStyle(
+                fontSize: 14.0,
+                fontFamily: 'Georgia',
+                color: Colors.grey.shade300),
+          ),
+        );
       case ThemeType.Other:
-        return ThemeData();
+        return ThemeData(
+          primaryColor: Colors.black,
+          accentColor: Colors.grey.shade100,
+          unselectedWidgetColor: Colors.grey,
+          textTheme: TextTheme(
+            headline3: TextStyle(
+              color: Colors.white,
+              fontSize: 50.0,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Roboto',
+            ),
+            subtitle1: TextStyle(fontSize: 15.0, color: Colors.grey.shade400),
+            bodyText1: TextStyle(
+                fontSize: 14.0,
+                fontFamily: 'Georgia',
+                color: Colors.grey.shade300),
+          ),
+        );
+      case ThemeType.Happy:
+        return ThemeData(
+          accentColor: Colors.white,
+          textTheme: TextTheme(
+            headline3: TextStyle(
+              color: Color(0xff0B40A7),
+              fontSize: 50.0,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Roboto',
+            ),
+            subtitle1: TextStyle(fontSize: 15.0, color: Colors.white),
+            bodyText1: TextStyle(
+                fontSize: 14.0,
+                fontFamily: 'Georgia',
+                color: Colors.grey.shade300),
+          ),
+        );
+      case ThemeType.Flutterista:
+        return ThemeData(
+          brightness: Brightness.dark,
+          primaryColor: Color(0xff750D37),
+          accentColor: Colors.white,
+          textTheme: TextTheme(
+            headline3: TextStyle(
+              color: Colors.white,
+              fontSize: 50.0,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'Roboto',
+            ),
+            subtitle1: TextStyle(fontSize: 15.0, color: Colors.white),
+            bodyText1: TextStyle(
+                fontSize: 14.0,
+                fontFamily: 'Georgia',
+                color: Colors.grey.shade300),
+          ),
+        );
     }
   }
 }
@@ -42,4 +122,6 @@ enum ThemeType {
   Light,
   Dark,
   Other,
+  Happy,
+  Flutterista,
 }

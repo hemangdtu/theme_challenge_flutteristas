@@ -33,9 +33,9 @@ class SceneryThemeData {
 
   final Color skyFillColor;
 
-  final Color mountainFillColor;
+  final Color? mountainFillColor;
 
-  final Color waterFillColor;
+  final Color? waterFillColor;
 
   final bool drawSun;
 

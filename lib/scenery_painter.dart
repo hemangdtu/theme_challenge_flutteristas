@@ -12,8 +12,8 @@ class SceneryPainter extends CustomPainter {
     required this.drawMoon,
   });
 
-  final Color waterColor;
-  final Color mountainColor;
+  final Color? waterColor;
+  final Color? mountainColor;
   final Color skyColor;
   final double textHeight;
   final bool drawSun;
@@ -56,7 +56,7 @@ class SceneryPainter extends CustomPainter {
       Rect.fromPoints(Offset.zero, Offset(size.width, skyHeight)),
       _paint,
     );
-    _paint.color = waterColor;
+    _paint.color = waterColor!;
     canvas.drawRect(
       Rect.fromPoints(Offset(0, skyHeight), Offset(size.width, _canvasHeight)),
       _paint,
@@ -72,7 +72,7 @@ class SceneryPainter extends CustomPainter {
     int upOrDown;
     final skyHeight = _canvasHeight * .66;
     if (isMountain) {
-      _paint.color = mountainColor;
+      _paint.color = mountainColor!;
       reflectionHeightDelta = 0;
       upOrDown = 1;
     } else {
@@ -81,11 +81,16 @@ class SceneryPainter extends CustomPainter {
       upOrDown = -1;
     }
 
-    final leftMtLeftPt = Offset(0, reflectionHeightDelta + upOrDown * skyHeight);
-    final leftMtPeakPt = Offset(size.width / 4, reflectionHeightDelta + upOrDown * _canvasHeight * .5);
-    final leftMtRtPt = Offset(size.width / 2, reflectionHeightDelta + upOrDown * _canvasHeight * .58);
-    final rtMtPeakPt = Offset(3 * size.width / 4, reflectionHeightDelta + upOrDown * _canvasHeight * .4);
-    final rtMtRtPt = Offset(size.width, reflectionHeightDelta + upOrDown * skyHeight);
+    final leftMtLeftPt =
+        Offset(0, reflectionHeightDelta + upOrDown * skyHeight);
+    final leftMtPeakPt = Offset(
+        size.width / 4, reflectionHeightDelta + upOrDown * _canvasHeight * .5);
+    final leftMtRtPt = Offset(
+        size.width / 2, reflectionHeightDelta + upOrDown * _canvasHeight * .58);
+    final rtMtPeakPt = Offset(3 * size.width / 4,
+        reflectionHeightDelta + upOrDown * _canvasHeight * .4);
+    final rtMtRtPt =
+        Offset(size.width, reflectionHeightDelta + upOrDown * skyHeight);
 
     final mtPath = Path();
     mtPath.moveTo(leftMtLeftPt.dx, leftMtLeftPt.dy);

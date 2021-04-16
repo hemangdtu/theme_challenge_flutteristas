@@ -22,12 +22,18 @@ class _SceneryState extends State<Scenery> {
         children: [
           CustomPaint(
             foregroundPainter: SceneryPainter(
-              skyColor: CustomWidgetThemes.of(context).sceneryThemeData!.skyFillColor,
-              waterColor: CustomWidgetThemes.of(context).sceneryThemeData!.waterFillColor,
-              mountainColor: CustomWidgetThemes.of(context).sceneryThemeData!.mountainFillColor,
+              skyColor:
+                  CustomWidgetThemes.of(context).sceneryThemeData!.skyFillColor,
+              waterColor: CustomWidgetThemes.of(context)
+                  .sceneryThemeData!
+                  .waterFillColor,
+              mountainColor: CustomWidgetThemes.of(context)
+                  .sceneryThemeData!
+                  .mountainFillColor,
               textHeight: _textAreaHeight,
               drawSun: CustomWidgetThemes.of(context).sceneryThemeData!.drawSun,
-              drawMoon: CustomWidgetThemes.of(context).sceneryThemeData!.drawMoon,
+              drawMoon:
+                  CustomWidgetThemes.of(context).sceneryThemeData!.drawMoon,
             ),
             child: Container(),
           ),
@@ -35,6 +41,9 @@ class _SceneryState extends State<Scenery> {
           Positioned(
             bottom: 0,
             child: Container(
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+              ),
               height: _textAreaHeight,
               width: constraints.maxWidth,
               child: const SomeText(),
@@ -46,36 +55,75 @@ class _SceneryState extends State<Scenery> {
             child: Container(
               width: constraints.maxWidth,
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Expanded(
-                      child: RadioListTile<ThemeType>(
-                        contentPadding: EdgeInsets.symmetric(horizontal: 4),
-                        title: const Text('Light'),
-                        groupValue: myTheme.themeType,
-                        value: ThemeType.Light,
-                        onChanged: (ThemeType? mode) => myTheme.setThemeType(ThemeType.Light),
-                      ),
+                padding: const EdgeInsets.all(2.0),
+                child: Column(
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(
+                          child: RadioListTile<ThemeType>(
+                            contentPadding: EdgeInsets.symmetric(horizontal: 0),
+                            title: const Text('Light',
+                                style: TextStyle(fontSize: 12)),
+                            groupValue: myTheme.themeType,
+                            value: ThemeType.Light,
+                            onChanged: (ThemeType? mode) =>
+                                myTheme.setThemeType(ThemeType.Light),
+                          ),
+                        ),
+                        Expanded(
+                          child: RadioListTile<ThemeType>(
+                            contentPadding: EdgeInsets.symmetric(horizontal: 0),
+                            title: const Text('Dark',
+                                style: TextStyle(fontSize: 12)),
+                            groupValue: myTheme.themeType,
+                            value: ThemeType.Dark,
+                            onChanged: (ThemeType? mode) =>
+                                myTheme.setThemeType(ThemeType.Dark),
+                          ),
+                        ),
+                      ],
                     ),
-                    Expanded(
-                      child: RadioListTile<ThemeType>(
-                        contentPadding: EdgeInsets.symmetric(horizontal: 4),
-                        title: const Text('Dark'),
-                        groupValue: myTheme.themeType,
-                        value: ThemeType.Dark,
-                        onChanged: (ThemeType? mode) => myTheme.setThemeType(ThemeType.Dark),
-                      ),
-                    ),
-                    Expanded(
-                      child: RadioListTile<ThemeType>(
-                        contentPadding: EdgeInsets.symmetric(horizontal: 4),
-                        title: const Text('Other'),
-                        groupValue: myTheme.themeType,
-                        value: ThemeType.Other,
-                        onChanged: (ThemeType? mode) => myTheme.setThemeType(ThemeType.Other),
-                      ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          child: RadioListTile<ThemeType>(
+                            contentPadding: EdgeInsets.symmetric(horizontal: 0),
+                            title: const Text('Elegant',
+                                style: TextStyle(fontSize: 12)),
+                            groupValue: myTheme.themeType,
+                            value: ThemeType.Other,
+                            onChanged: (ThemeType? mode) =>
+                                myTheme.setThemeType(ThemeType.Other),
+                          ),
+                        ),
+                        Expanded(
+                          child: RadioListTile<ThemeType>(
+                            contentPadding: EdgeInsets.symmetric(horizontal: 0),
+                            title: const Text('Happy',
+                                style: TextStyle(fontSize: 12)),
+                            groupValue: myTheme.themeType,
+                            value: ThemeType.Happy,
+                            onChanged: (ThemeType? mode) =>
+                                myTheme.setThemeType(ThemeType.Happy),
+                          ),
+                        ),
+                        Expanded(
+                          child: RadioListTile<ThemeType>(
+                            contentPadding: EdgeInsets.symmetric(horizontal: 0),
+                            title: const Text('Favourite',
+                                style: TextStyle(fontSize: 12)),
+                            groupValue: myTheme.themeType,
+                            value: ThemeType.Flutterista,
+                            onChanged: (ThemeType? mode) =>
+                                myTheme.setThemeType(ThemeType.Flutterista),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
@@ -109,11 +157,11 @@ class SomeText extends StatelessWidget {
           style: Theme.of(context).textTheme.bodyText1,
         ),
         Text(
-          'Welcome to Flutter Challenge',
+          'Welcome to my solution of Flutter Challenge',
           style: Theme.of(context).textTheme.bodyText1,
         ),
         Text(
-          'We hope you have fun :)',
+          'I hope you have fun :)',
           style: Theme.of(context).textTheme.bodyText1,
         ),
       ],
